@@ -3,7 +3,7 @@ function togglePassword() {
   pass.type = pass.type === "password" ? "text" : "password";
 }
 
-function handleLogin() {
+async function handleLogin() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
   const error = document.getElementById("error");
@@ -14,7 +14,26 @@ function handleLogin() {
 
   if (!email || !password) {
     error.textContent = "Please fill in all fields.";
-  } else {
-    success.textContent = "Login successful";
+    return;
+  }
+
+  try {
+    const response = await fetch("/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      success.textContent = data.message;
+    } else {
+      error.textContent = data.message;
+    }
+  } catch (err) {
+    error.textContent = "Server error. Please try again.";
+    console.error(err);
   }
 }
+

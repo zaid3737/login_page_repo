@@ -32,7 +32,7 @@ app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    // Query database for user
+    // Check if user exists
     const [rows] = await pool.query(
       "SELECT * FROM users WHERE email = ? AND password = ?",
       [email, password]
@@ -41,7 +41,7 @@ app.post("/login", async (req, res) => {
     if (rows.length > 0) {
       // ✅ Update last_login timestamp
       await pool.query(
-        "UPDATE users SET last_login = CURRENT_TIMESTAMP WHERE email = ?",
+        "UPDATE users SET last_login = NOW() WHERE email = ?",
         [email]
       );
 

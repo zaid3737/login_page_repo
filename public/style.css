@@ -1,0 +1,129 @@
+/* ==============================
+   Global Styles
+   ============================== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #000; /* Black background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full screen height */
+}
+
+/* ==============================
+   Login Container (Card)
+   ============================== */
+.login-container {
+  background: #fff; /* White box */
+  padding: 2rem;
+  border-radius: 16px; /* Rounded corners */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5); /* Shadow effect */
+  width: 350px;
+  animation: fadeIn 0.6s ease; /* Smooth animation */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* ==============================
+   Heading
+   ============================== */
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+/* ==============================
+   Input Fields
+   ============================== */
+.input-group {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Highlight input when focused */
+input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 5px rgba(59,130,246,0.5);
+}
+
+/* ==============================
+   Toggle Password Button
+   ============================== */
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #555;
+}
+
+/* ==============================
+   Options Section
+   ============================== */
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 1rem;
+}
+
+.options a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.options a:hover {
+  text-decoration: underline;
+}
+
+/* ==============================
+   Login Button
+   ============================== */
+.btn {
+  width: 100%;
+  padding: 12px;
+  background: #3b82f6; /* Blue background */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Hover effect */
+.btn:hover {
+  background: #2563eb; /* Darker blue */
+}
+
+/* ==============================
+   Messages (Error & Success)
+   ============================== */
+.error, .success {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.error { color: red; }
+.success { color: green; }

@@ -39,6 +39,12 @@ app.post("/login", async (req, res) => {
     );
 
     if (rows.length > 0) {
+      // ✅ Update last_login timestamp
+      await pool.query(
+        "UPDATE users SET last_login = CURRENT_TIMESTAMP WHERE email = ?",
+        [email]
+      );
+
       res.json({ success: true, message: "Login successful!" });
     } else {
       res.json({ success: false, message: "Invalid credentials" });
